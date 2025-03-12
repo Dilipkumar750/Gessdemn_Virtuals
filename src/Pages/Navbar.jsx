@@ -43,8 +43,6 @@ const Navbar = () => {
                                     "Virtual Staging",
                                     "Item Removal & Virtual Cleaning",
                                     "Floor Plans",
-                                    "Renders",
-                                    "Copywriting",
                                     "Virtual Renovation",
                                     "Other"
                                 ].map((service, index) => (
