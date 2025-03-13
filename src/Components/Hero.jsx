@@ -3,10 +3,26 @@ import autoenhance from "../assets/autoenhance.jpeg";
 import autoenhance2 from "../assets/autoenhance2.webp";
 import autoenhance3 from "../assets/autoenhance3.webp";
 import autoenhance4 from "../assets/autoenhance4.webp";
-import realestate from "../assets/realestate.jpg"
+import realestate from "../assets/realestate.jpg";
+import { useLocation } from "react-router-dom";
+
+
 const images = [autoenhance, autoenhance2, autoenhance3, autoenhance4];
 
 const Hero = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      setTimeout(() => {
+        const section = document.getElementById(location.state.scrollTo);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Delay to ensure the section is present
+    }
+  }, [location]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const navigate = useNavigate();
 
+    const handleNavigateToSection = (sectionId) => {
+        navigate("/", { state: { scrollTo: sectionId } }); 
+        setIsOpen(false); 
+    };
     const handleScrollToSection = (id) => {
         document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-        setIsOpen(false); // Close mobile menu after clicking
+        setIsOpen(false); 
     };
 
     return (
@@ -31,7 +36,7 @@ const Navbar = () => {
                     <Link to="/">
                         <button onClick={() => handleScrollToSection("home")} className="hover:text-orange-500">Home</button>
                     </Link>
-                    <button onClick={() => handleScrollToSection("about")} className="hover:text-orange-500">About Us</button>
+                    <button onClick={() => handleNavigateToSection("about")} className="hover:text-orange-500">About Us</button>
                     {/* Services Dropdown */}
                     <div
                         className="relative"
@@ -58,7 +63,7 @@ const Navbar = () => {
                         )}
                     </div>
 
-                    <button onClick={() => handleScrollToSection("contact")} className="hover:text-orange-500">Contact</button>
+                    <button onClick={() => handleNavigateToSection("contact")} className="hover:text-orange-500">Contact</button>
                 </div>
 
                 {/* Mobile Menu Icon */}
@@ -110,8 +115,7 @@ const Navbar = () => {
                             </motion.div>
                         )}
                     </div>
-
-                    <button onClick={() => handleScrollToSection("contact")} className="hover:text-orange-500">Contact</button>
+                    <button onClick={() => handleNavigateToSection("contact")} className="hover:text-orange-500">Contact</button>
                 </nav>
             </motion.div>
         </nav>
