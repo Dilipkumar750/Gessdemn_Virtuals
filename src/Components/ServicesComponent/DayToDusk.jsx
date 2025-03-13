@@ -62,7 +62,7 @@ const DayToDusk = () => {
             <p className="text-lg text-center max-w-3xl mx-auto mb-10">
                 Transform daytime property photos into stunning twilight scenes to create eye-catching real estate listings.
             </p>
-
+             
             {/* Before & After Comparison */}
             <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12 mt-12">
                 <div className="w-full lg:w-1/2 flex justify-center">
@@ -81,8 +81,12 @@ const DayToDusk = () => {
                             </div>
                         ))}
                     </div>
+                    
+                    
                 </div>
+                
             </div>
+            
 
             {/* Why Choose Day to Dusk? */}
             <div className="max-w-6xl mx-auto py-16 px-6">

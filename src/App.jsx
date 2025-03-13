@@ -11,21 +11,31 @@ import VirtualRenovation from './Components/ServicesComponent/VirtualRenovation'
 import './App.css';
 import TermsAndConditions from './Components/Termsandconditions';
 import ScrollToTop from './Components/ScrollToTop';
-
+import Privacypolicy from "./Components/privacypolicy"
 function App() {
   return (
     <Router>
       <Navbar />
-      <ScrollToTop/>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/ourservices/ImageEnhancement" element={<ImageEnhancement />} />
-        <Route path="/ourservices/VirtualStaging" element={<VirtualStaging />} />
+        <Route
+          path="/ourservices/ImageEnhancement"
+          element={<ImageEnhancement />}
+        />
+        <Route
+          path="/ourservices/VirtualStaging"
+          element={<VirtualStaging />}
+        />
         <Route path="/ourservices/ItemRemoval" element={<ItemRemoval />} />
         <Route path="/ourservices/DayToDusk" element={<DayToDusk />} />
         <Route path="/ourservices/FloorPlan" element={<FloorPlan />} />
-        <Route path="/ourservices/VirtualRenovation" element={<VirtualRenovation />} />
+        <Route
+          path="/ourservices/VirtualRenovation"
+          element={<VirtualRenovation />}
+        />
         <Route path="/termsandcondition" element={<TermsAndConditions />} />
+        <Route path="/privacypolicy" element={<Privacypolicy />} />
       </Routes>
       <Footer />
     </Router>
