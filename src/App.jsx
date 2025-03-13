@@ -10,11 +10,13 @@ import FloorPlan from './Components/ServicesComponent/FloorPlan';
 import VirtualRenovation from './Components/ServicesComponent/VirtualRenovation';
 import './App.css';
 import TermsAndConditions from './Components/Termsandconditions';
+import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ourservices/ImageEnhancement" element={<ImageEnhancement />} />
