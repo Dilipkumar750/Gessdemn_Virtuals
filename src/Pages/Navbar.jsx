@@ -2,33 +2,42 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
+    const handleScrollToSection = (id) => {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+        setIsOpen(false); // Close mobile menu after clicking
+    };
+
     return (
         <nav className="bg-black text-white fixed w-full top-0 z-50">
             <div className="container mx-auto flex items-center justify-between px-6 py-4">
                 {/* Logo */}
-                <div className="flex items-center space-x-2">
-                    <div className="bg-orange-600 p-2 rounded">
-                        <span className="text-white font-bold text-xl">GV.</span>
+                <Link to="/">
+                    <div className="flex items-center space-x-2">
+                        <div className="bg-orange-600 p-2 rounded">
+                            <span className="text-white font-bold text-xl">GV.</span>
+                        </div>
+                        <span className="text-orange-600 font-bold text-lg">Gessdemn Virtuals</span>
                     </div>
-                    <span className="text-orange-600 font-bold text-lg">Gessdemn Virtuals</span>
-                </div>
+                </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-8 uppercase text-sm font-bold">
-                    <a href="#" className="hover:text-orange-500">Home</a>
-                    <a href="#" className="hover:text-orange-500">About Us</a>
-
+                    <Link to="/">
+                        <button onClick={() => handleScrollToSection("home")} className="hover:text-orange-500">Home</button>
+                    </Link>
+                    <button onClick={() => handleScrollToSection("about")} className="hover:text-orange-500">About Us</button>
                     {/* Services Dropdown */}
                     <div
                         className="relative"
-                        onClick={() => setDropdownOpen(!dropdownOpen)} 
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
                     >
-                        <button className="flex items-center text-lg -mt-1 hover:text-orange-500">
+                        <button className="flex items-center text-md  hover:text-orange-500">
                             Our Services <IoIosArrowDown className="ml-1" />
                         </button>
                         {dropdownOpen && (
@@ -37,24 +46,19 @@ const Navbar = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 className="fixed top-[60px] left-0 w-screen bg-gray-800 text-white shadow-lg p-4 flex justify-center space-x-8 uppercase text-sm font-bold"
                             >
-                                {[
-                                    "Image Enhancement",
-                                    "Day to Dusk",
-                                    "Virtual Staging",
-                                    "Item Removal & Virtual Cleaning",
-                                    "Floor Plans",
-                                    "Virtual Renovation",
-                                    "Other"
-                                ].map((service, index) => (
-                                    <a key={index} href="#" className="hover:text-orange-500 transition">
-                                        {service}
-                                    </a>
-                                ))}
+                                <Link to="/ourservices/ImageEnhancement" className="block hover:text-orange-500">Image Enhancement</Link>
+                                <Link to="/ourservices/VirtualStaging" className="block hover:text-orange-500">Virtual Staging</Link>
+                                <Link to="/ourservices/ItemRemoval" className="block hover:text-orange-500">Item Removal</Link>
+                                <Link to="/ourservices/DayToDusk" className="block hover:text-orange-500">Day to Dusk</Link>
+                                <Link to="/ourservices/FloorPlan" className="block hover:text-orange-500">Floor Plans</Link>
+                                <Link to="/ourservices/VirtualRenovation" className="block hover:text-orange-500">Virtual Renovation</Link>
+
+
                             </motion.div>
                         )}
                     </div>
 
-                    <a href="#" className="hover:text-orange-500">Contact</a>
+                    <button onClick={() => handleScrollToSection("contact")} className="hover:text-orange-500">Contact</button>
                 </div>
 
                 {/* Mobile Menu Icon */}
@@ -79,8 +83,8 @@ const Navbar = () => {
 
                 {/* Mobile Menu Links */}
                 <nav className="flex flex-col space-y-6 mt-10 uppercase text-lg font-bold">
-                    <a href="#" className="hover:text-orange-500">Home</a>
-                    <a href="#" className="hover:text-orange-500">About Us</a>
+                    <button onClick={() => handleScrollToSection("home")} className="hover:text-orange-500">Home</button>
+                    <button onClick={() => handleScrollToSection("about")} className="hover:text-orange-500">About Us</button>
 
                     {/* Services Dropdown Inside Drawer */}
                     <div>
@@ -97,16 +101,17 @@ const Navbar = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 className="mt-3 bg-gray-800 rounded p-3 space-y-2"
                             >
-                                {["Image Enhancement", "Day to Dusk", "Virtual Staging", "Item Removal & Virtual Cleaning", "Floor Plans", "Renders", "Copywriting", "Virtual Renovation", "Other"].map((service, index) => (
-                                    <a key={index} href="#" className="block hover:text-orange-500 transition">
-                                        {service}
-                                    </a>
-                                ))}
+                                <Link to="/ourservices/ImageEnhancement" className="block hover:text-orange-500">Image Enhancement</Link>
+                                <Link to="/ourservices/VirtualStaging" className="block hover:text-orange-500">Virtual Staging</Link>
+                                <Link to="/ourservices/ItemRemoval" className="block hover:text-orange-500">Item Removal</Link>
+                                <Link to="/ourservices/DayToDusk" className="block hover:text-orange-500">Day to Dusk</Link>
+                                <Link to="/ourservices/FloorPlan" className="block hover:text-orange-500">Floor Plans</Link>
+                                <Link to="/ourservices/VirtualRenovation" className="block hover:text-orange-500">Virtual Renovation</Link>
                             </motion.div>
                         )}
                     </div>
 
-                    <a href="#" className="hover:text-orange-500">Contact</a>
+                    <button onClick={() => handleScrollToSection("contact")} className="hover:text-orange-500">Contact</button>
                 </nav>
             </motion.div>
         </nav>
