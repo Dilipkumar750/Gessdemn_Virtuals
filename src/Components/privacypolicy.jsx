@@ -112,5 +112,5 @@ const privacypolicy = () => {
         );
     };
     
-    export default PrivacyPolicy;
+    export default privacypolicy;
   
