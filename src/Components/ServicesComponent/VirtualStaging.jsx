@@ -61,7 +61,6 @@ const Virtualstaging = () => {
                 Transform empty listings into stunning, fully furnished spaces that attract buyers and boost property value.
             </p>
 
-            {/* Before & After Comparison */}
             <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12 mt-12">
                 <div className="w-full lg:w-1/2 flex justify-center">
                     <div className="w-full md:w-3/4 lg:w-full">
@@ -69,7 +68,6 @@ const Virtualstaging = () => {
                     </div>
                 </div>
 
-                {/* Virtual Staging Features */}
                 <div className="w-full lg:w-1/2">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {stagingFeatures.map((feature, index) => (
