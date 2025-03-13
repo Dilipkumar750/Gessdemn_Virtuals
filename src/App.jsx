@@ -9,6 +9,7 @@ import DayToDusk from './Components/ServicesComponent/DayToDusk';
 import FloorPlan from './Components/ServicesComponent/FloorPlan';
 import VirtualRenovation from './Components/ServicesComponent/VirtualRenovation';
 import './App.css';
+import TermsAndConditions from './Components/Termsandconditions';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/ourservices/DayToDusk" element={<DayToDusk />} />
         <Route path="/ourservices/FloorPlan" element={<FloorPlan />} />
         <Route path="/ourservices/VirtualRenovation" element={<VirtualRenovation />} />
+        <Route path="/termsandcondition" element={<TermsAndConditions />} />
       </Routes>
       <Footer />
     </Router>
