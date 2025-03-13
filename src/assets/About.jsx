@@ -5,6 +5,7 @@ import hero3 from "../assets/img7.jpg";
 import hero4 from "../assets/img af.jpg";
 import hero5 from "../assets/img be.jpg";
 
+
 const About = () => {
   return (
     <section id="about">
@@ -16,20 +17,22 @@ const About = () => {
             <div className="grid grid-cols-2 gap-3">
               {" "}
               {/* Reduced gap */}
-              {[hero2, hero3, hero4, hero5].map((src, index) => (
-                <div
-                  key={index}
-                  className="w-[150px] h-[150px] overflow-hidden"
-                >
-                  {" "}
-                  {/* Set fixed size */}
-                  <img
-                    className="w-full h-full object-cover rounded-lg"
-                    src={src}
-                    alt="Gallery"
-                  />
-                </div>
-              ))}
+              {[ hero2, hero3, hero4, hero5].map(
+                (src, index) => (
+                  <div
+                    key={index}
+                    className="w-[150px] h-[150px] overflow-hidden"
+                  >
+                    {" "}
+                    {/* Set fixed size */}
+                    <img
+                      className="w-full h-full object-cover rounded-lg"
+                      src={src}
+                      alt="Gallery"
+                    />
+                  </div>
+                )
+              )}
             </div>
           </div>
 
