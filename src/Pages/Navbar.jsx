@@ -10,12 +10,12 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handleNavigateToSection = (sectionId) => {
-        navigate("/", { state: { scrollTo: sectionId } }); 
-        setIsOpen(false); 
+        navigate("/", { state: { scrollTo: sectionId } });
+        setIsOpen(false);
     };
     const handleScrollToSection = (id) => {
         document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-        setIsOpen(false); 
+        setIsOpen(false);
     };
 
     return (
@@ -40,7 +40,7 @@ const Navbar = () => {
                     {/* Services Dropdown */}
                     <div
                         className="relative"
-                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        onClick={() => setDropdownOpen(!dropdownOpen)}  
                     >
                         <button className="flex items-center text-md  hover:text-orange-500">
                             Our Services <IoIosArrowDown className="ml-1" />

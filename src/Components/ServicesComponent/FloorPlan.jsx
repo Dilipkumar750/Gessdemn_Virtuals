@@ -8,8 +8,18 @@ import plan from "../../assets/plan.jpg";
 import blueprint from "../../assets/color-floor-plan-black.jpg";
 import commercial from "../../assets/efficient-floor-plans.jpg";
 import OurServices from "../OurServices";
+import { useNavigate } from "react-router-dom";
 
 const FloorPlan = () => {
+    const navigate = useNavigate();
+
+    const handleScrollToSection = (id) => {
+      navigate("/"); // Navigate to home
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 500); // Delay to allow navigation to complete
+    };
+  
     const floorplanFeatures = [
         "Accurate Floor Plan Redraws",
         "High-Resolution Black & White Plans",
@@ -85,7 +95,8 @@ const FloorPlan = () => {
             <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12 mt-12">
                 <div className="w-full lg:w-1/2 flex justify-center">
                     <div className="w-full md:w-3/4 lg:w-full">
-<img src={floorplan} alt="" />                    </div>
+                        <img src={floorplan} alt="" />
+                    </div>
                 </div>
 
                 {/* Floor Plan Features */}
@@ -98,6 +109,14 @@ const FloorPlan = () => {
                             </div>
                         ))}
                     </div>
+                    <div className="flex justify-center mt-10">
+                    <button
+                        className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 mb-5"
+                        onClick={() => handleScrollToSection("contact")}
+                    >
+                        Get Started
+                    </button>
+                </div>
                 </div>
             </div>
 
@@ -140,6 +159,14 @@ const FloorPlan = () => {
                         ))}
                     </div>
                 </div>
+                <div className="flex justify-center mt-10">
+            <button
+              className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              onClick={() => handleScrollToSection("contact")}
+            >
+              Get Started
+            </button>
+          </div>
             </div>
 
             <OurServices />
