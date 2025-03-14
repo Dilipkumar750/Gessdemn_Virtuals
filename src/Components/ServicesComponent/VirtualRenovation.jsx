@@ -7,8 +7,20 @@ import kitchenrenovation from "../../assets/kitchenrenovation.jpg";
 import floor from "../../assets/floorandwall.jpg";
 import furniture from "../../assets/furniture.jpg";
 import OurServices from "../OurServices";
+import exterior from "../../assets/exterior.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const VirtualRenovation = () => {
+
+    const navigate = useNavigate();
+
+    const handleScrollToSection = (id) => {
+        navigate("/"); // Navigate to home
+        setTimeout(() => {
+            document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        }, 500); // Delay to allow navigation to complete
+    };
+
     const renovationFeatures = [
         "Complete Interior Remodeling",
         "Wall & Floor Upgrades",
@@ -62,19 +74,18 @@ const VirtualRenovation = () => {
         {
             title: "Exterior Home Renovations",
             desc: "Upgrade curb appeal with landscaping, new paint, and architectural enhancements.",
-            image: "path-to-exterior-image.jpg"
+            image: exterior
         }
     ];
 
     return (
         <div className="py-20 px-6 bg-gray-100 min-h-screen mt-5">
             <h1 className="text-4xl font-bold text-orange-600 text-center mb-6">
-                Real Estate Photo Item Removal
+                Virtual Renovation
             </h1>
             <p className="text-lg text-center max-w-3xl mx-auto mb-10">
-                Remove unwanted objects from property photos to create clean, professional, and high-impact real estate listings.
+                Transform empty or outdated spaces into stunning, fully furnished interiors with realistic virtual renovation, helping buyers visualize the true potential of a property.
             </p>
-
             {/* Before & After Comparison */}
             <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12 mt-12">
                 <div className="w-full lg:w-1/2 flex justify-center">
@@ -93,8 +104,18 @@ const VirtualRenovation = () => {
                             </div>
                         ))}
                     </div>
+                    <div className="flex justify-center mt-10">
+                        <button
+                            className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 mb-5"
+                            onClick={() => handleScrollToSection("contact")}
+                        >
+                            Get Started
+                        </button>
+                    </div>
                 </div>
+
             </div>
+
 
             {/* Why Choose Item Removal? */}
             <div className="max-w-6xl mx-auto py-16 px-6">
@@ -134,6 +155,14 @@ const VirtualRenovation = () => {
                             </div>
                         ))}
                     </div>
+                    <div className="flex justify-center mt-10">
+                    <button
+                        className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                        onClick={() => handleScrollToSection("contact")}
+                    >
+                        Get Started
+                    </button>
+                </div>
                 </div>
             </div>
             <OurServices />

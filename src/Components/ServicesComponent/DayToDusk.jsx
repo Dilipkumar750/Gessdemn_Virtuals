@@ -6,8 +6,18 @@ import { CheckCircle } from "lucide-react";
 import twilightHome from "../../assets/twilighthome.jpg";
 import sunsetView from "../../assets/skyreplacement.jpg";
 import OurServices from "../OurServices";
+import { useNavigate } from "react-router-dom";
 
 const DayToDusk = () => {
+    const navigate = useNavigate();
+
+    const handleScrollToSection = (id) => {
+      navigate("/"); 
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+    };
+  
     const duskFeatures = [
         "Daylight to Twilight Transformation",
         "Warm & Inviting Sunset Effects",
@@ -62,7 +72,7 @@ const DayToDusk = () => {
             <p className="text-lg text-center max-w-3xl mx-auto mb-10">
                 Transform daytime property photos into stunning twilight scenes to create eye-catching real estate listings.
             </p>
-             
+
             {/* Before & After Comparison */}
             <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12 mt-12">
                 <div className="w-full lg:w-1/2 flex justify-center">
@@ -81,12 +91,19 @@ const DayToDusk = () => {
                             </div>
                         ))}
                     </div>
-                    
-                    
+                    <div className="flex justify-center mt-10">
+            <button
+              className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 mb-5"
+              onClick={() => handleScrollToSection("contact")}
+            >
+              Get Started
+            </button>
+          </div>
+
                 </div>
-                
+
             </div>
-            
+
 
             {/* Why Choose Day to Dusk? */}
             <div className="max-w-6xl mx-auto py-16 px-6">
@@ -127,8 +144,16 @@ const DayToDusk = () => {
                         ))}
                     </div>
                 </div>
+                <div className="flex justify-center mt-10">
+                    <button
+                        className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 mb-5"
+                        onClick={() => handleScrollToSection("contact")}
+                    >
+                        Get Started
+                    </button>
+                </div>
             </div>
-            <OurServices/>  
+            <OurServices />
         </div>
     );
 };

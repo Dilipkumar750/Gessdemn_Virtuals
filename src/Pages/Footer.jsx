@@ -74,7 +74,7 @@ const Footer = () => {
             <h4 className="text-lg mb-6 text-white font-semibold">Useful Links</h4>
             <ul className="space-y-4">
               <li>
-                <button onClick={() => handleScrollToSection("home")} className="text-gray-400 hover:text-white text-sm">
+                <button onClick={() => handleNavigateToSection("home")} className="text-gray-400 hover:text-white text-sm">
                   Home
                 </button>
               </li>

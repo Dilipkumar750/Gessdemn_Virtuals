@@ -6,8 +6,19 @@ import { CheckCircle } from "lucide-react";
 import clutteredRoom from "../../assets/clutteredimage.jpg";
 import cleanRoom from "../../assets/space.png";
 import OurServices from "../OurServices";
+import { useNavigate } from "react-router-dom";
 
 const ItemRemoval = () => {
+
+  const navigate = useNavigate();
+
+  const handleScrollToSection = (id) => {
+    navigate("/"); // Navigate to home
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 500); // Delay to allow navigation to complete
+  };
+
   const removalFeatures = [
     "Unwanted Object & Clutter Removal",
     "Vehicle & People Elimination",
@@ -92,14 +103,15 @@ const ItemRemoval = () => {
           </div>
 
           {/* Get Started Button Below the Main Title */}
-          <div className="flex justify-center mt-6 left-0 bottom-0">
-            <a
-              className="px-12 py-5 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-              href="#"
+          <div className="flex justify-center mt-10">
+            <button
+              className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 mb-5"
+              onClick={() => handleScrollToSection("contact")}
             >
               Get Started
-            </a>
+            </button>
           </div>
+
         </div>
       </div>
       {/* Why Choose Item Removal? */}
@@ -123,7 +135,14 @@ const ItemRemoval = () => {
           ))}
         </div>
       </div>
-
+      <div className="flex justify-center mt-2">
+        <button
+          className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 mb-5"
+          onClick={() => handleScrollToSection("contact")}
+        >
+          Get Started
+        </button>
+      </div>
       {/* Key Features */}
       <div className="min-h-screen flex flex-col p-8 sm:p-16 md:p-24 justify-center bg-white">
         <div className="mx-auto max-w-6xl">

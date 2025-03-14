@@ -6,8 +6,18 @@ import { CheckCircle } from "lucide-react";
 import stagingExample from "../../assets/virtualstaging.jpg";
 import furniturePlacement from "../../assets/furniturevirtual.png";
 import OurServices from "../OurServices";
+import { useNavigate } from "react-router-dom";
 
 const Virtualstaging = () => {
+  const navigate = useNavigate();
+
+  const handleScrollToSection = (id) => {
+    navigate("/"); // Navigate to home
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 500); // Delay to allow navigation to complete
+  };
+
   const stagingFeatures = [
     "Furniture & Decor Placement",
     "Room Customization (Modern, Luxury, Classic)",
@@ -92,13 +102,13 @@ const Virtualstaging = () => {
           </div>
 
           {/* Button Below the Last Feature */}
-          <div className="flex justify-center mt-6">
-            <a
-              className="px-12 py-5 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-              href="#"
+          <div className="flex justify-center mt-10">
+            <button
+              className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 mb-5"
+              onClick={() => handleScrollToSection("contact")}
             >
               Get Started
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -155,15 +165,14 @@ const Virtualstaging = () => {
         </div>
         {/* Get Started Button Below Key Features */}
         <div className="flex justify-center mt-10">
-          <a
-            className="px-12 py-5 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-            href="#"
-          >
-            Get Started
-          </a>
-        </div>
+            <button
+              className="px-8 py-3 text-lg font-medium leading-tight inline-block bg-orange-600 text-white rounded-full shadow-xl border border-transparent hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 mb-5"
+              onClick={() => handleScrollToSection("contact")}
+            >
+              Get Started
+            </button>
+          </div>
       </div>
-
       <OurServices />
     </div>
   );

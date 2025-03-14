@@ -5,6 +5,7 @@ const Contact = () => {
     name: "",
     email: "",
     message: "",
+    service: "",
   });
 
   // Handle input change
@@ -14,34 +15,25 @@ const Contact = () => {
 
   // Handle form submission
   const handleSubmit = () => {
-    const { name, email, message } = formData;
+    const { name, email, message, service } = formData;
 
     // Validate input fields before submission
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !service) {
       alert("Please fill in all fields before submitting.");
       return;
     }
 
     // Format message for WhatsApp
-    const whatsappMessage = `Hello,\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    const whatsappMessage = `Hello,\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}\nService: ${service}`;
 
     // Replace with your WhatsApp number (Use international format)
-    const phoneNumber = "91"; // Example: 91 for India, then number
+    const phoneNumber = "919566794685"; // Example: 91 for India, then number
 
     // Create WhatsApp URL
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
     // Open WhatsApp in a new tab
     window.open(whatsappURL, "_blank");
-  };
-
-  // Confirmation before sending the message
-  const confirmSubmission = () => {
-    if (window.confirm("Do you want to send this message to WhatsApp?")) {
-      handleSubmit();
-    }
   };
 
   return (
@@ -51,7 +43,7 @@ const Contact = () => {
           <section className="text-gray-600 body-font relative">
             <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
               {/* Google Maps Section */}
-              <div className="lg:w-2/3 md:w-1/2  rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative object-fit">
+              <div className="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative object-fit">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.2488524746354!2d77.01759117504542!3d11.019946489143987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8575c2b644a8d%3A0xc3fcb5c67319679a!2sGESSDEMN%20GLOBAL%20SERVICES!5e0!3m2!1sen!2sin!4v1741781419898!5m2!1sen!2sin"
                   width="750"
@@ -64,7 +56,7 @@ const Contact = () => {
               </div>
 
               {/* Contact Form Section */}
-              <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+              <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0 p-6 shadow-lg rounded-lg">
                 <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">
                   Feedback
                 </h2>
@@ -74,10 +66,7 @@ const Contact = () => {
 
                 {/* Name Field */}
                 <div className="relative mb-4">
-                  <label
-                    htmlFor="name"
-                    className="leading-7 text-sm text-gray-600"
-                  >
+                  <label htmlFor="name" className="leading-7 text-sm text-gray-600">
                     Name
                   </label>
                   <input
@@ -87,16 +76,13 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
 
                 {/* Email Field */}
                 <div className="relative mb-4">
-                  <label
-                    htmlFor="email"
-                    className="leading-7 text-sm text-gray-600"
-                  >
+                  <label htmlFor="email" className="leading-7 text-sm text-gray-600">
                     Email
                   </label>
                   <input
@@ -106,16 +92,34 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
-
+                {/* Service Selection Dropdown */}
+                <div className="relative mb-4">
+                  <label htmlFor="service" className="leading-7 text-sm text-gray-600">
+                    Service
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white rounded border border-gray-300 focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-2 px-3 leading-6 transition-colors duration-200 ease-in-out"
+                  >
+                    <option value="" disabled>Select a service</option>
+                    <option value="Image Enhancement">Image Enhancement</option>
+                    <option value="Virtual Staging">Virtual Staging</option>
+                    <option value="Item Removal">Item Removal</option>
+                    <option value="Day to Dusk">Day to Dusk</option>
+                    <option value="Floor Plans">Floor Plans</option>
+                    <option value="Virtual Renovation">Virtual Renovation</option>
+                  </select>
+                </div>
                 {/* Message Field */}
                 <div className="relative mb-4">
-                  <label
-                    htmlFor="message"
-                    className="leading-7 text-sm text-gray-600"
-                  >
+                  <label htmlFor="message" className="leading-7 text-sm text-gray-600">
                     Message
                   </label>
                   <textarea
@@ -128,10 +132,10 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                {/* Submit Button with Confirmation */}
+                {/* Submit Button with WhatsApp Integration */}
                 <button
                   type="button"
-                  onClick={confirmSubmission}
+                  onClick={handleSubmit}
                   className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg"
                 >
                   Submit via WhatsApp
@@ -144,5 +148,4 @@ const Contact = () => {
     </section>
   );
 };
-
 export default Contact;
